@@ -8,6 +8,4 @@ export const sequelize = new Sequelize(
   }
 );
 
-//mysql://localhost:3306/database
-
 sequelize.authenticate().then(console.log).catch(console.error);
