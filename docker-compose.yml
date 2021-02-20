@@ -5,12 +5,18 @@ services:
       context: ./server
       dockerfile: Dockerfile
     environment:
-      - PORT=8000
+      PORT: 8000
+      POSTGRES_PASSWORD: secret
+      POSTGRES_USERNAME: postgres
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
     ports:
       - 8000:8000
     volumes:
       - /app/node_modules
       - ./server:/app
+    depends_on:
+      - postgres
   postgres:
     image: postgres
     restart: always
