@@ -7,5 +7,3 @@ export const sequelize = new Sequelize(
     password: process.env.POSTGRES_PASSWORD,
   }
 );
-
-sequelize.authenticate().then(console.log).catch(console.error);
