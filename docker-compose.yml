@@ -17,6 +17,16 @@ services:
       - ./server:/app
     depends_on:
       - postgres
+  client:
+    restart: always
+    stdin_open: true
+    build:
+      context: ./client
+    ports:
+      - 3000:3000
+    volumes:
+      - /app/node_modules
+      - ./client:/app
   postgres:
     image: postgres
     restart: always
